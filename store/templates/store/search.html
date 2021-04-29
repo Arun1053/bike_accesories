@@ -1,0 +1,56 @@
+
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+    <section class="mb-5">
+      
+    {% if searched %}
+        {% for pro in prod %}
+
+        <div class="row">
+        <div class="col-md-6 mb-4 mb-md-0">
+  
+            <div id="mdb-lightbox-ui"></div>
+  
+            <div class="mdb-lightbox">
+  
+            <div class="row product-gallery mx-1">
+  
+                <div class="col-12 mb-0">
+                    <figure class="view overlay rounded z-depth-1 main-img">
+                    <a href="{{pro.imageURL}}"
+                        data-size="710x823">
+                    <img src="{{pro.imageURL}}"
+                        class="img-fluid z-depth-1">
+                    </a>
+                    </figure>
+              
+                </div>
+            
+            </div>
+  
+        </div>
+  
+        </div>
+        <div class="col-md-6">
+  
+            <h5>{{pro.name}}</h5>
+            <p class="mb-2 text-muted text-uppercase small">Bike Accessories</p>
+        
+            <p><span class="mr-1"><strong>Price :- ${{pro.price}}</strong></span></p>
+            <p class="pt-1">{{pro.describ}}</p>
+            <button data-product="{{pro.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+				
+				
+			<h4 style="display: inline-block; float: right"><strong>${{product.price}}</strong></h4>
+        
+        </div>
+        </div>
+    {%endfor%}
+    {%endif%}
+
+
+  
+  </section>
+
+{% endblock content %}
